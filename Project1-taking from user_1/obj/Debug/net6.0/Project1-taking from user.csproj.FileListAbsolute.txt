@@ -1,0 +1,15 @@
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\bin\Debug\net6.0\Project1-taking from user.exe
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\bin\Debug\net6.0\Project1-taking from user.deps.json
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\bin\Debug\net6.0\Project1-taking from user.runtimeconfig.json
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\bin\Debug\net6.0\Project1-taking from user.dll
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\bin\Debug\net6.0\Project1-taking from user.pdb
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.csproj.AssemblyReference.cache
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.AssemblyInfoInputs.cache
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.AssemblyInfo.cs
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.csproj.CoreCompileInputs.cache
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.dll
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\refint\Project1-taking from user.dll
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.pdb
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\Project1-taking from user.genruntimeconfig.cache
+C:\Users\Hassan\source\repos\Project1-taking from user\Project1-taking from user\obj\Debug\net6.0\ref\Project1-taking from user.dll
