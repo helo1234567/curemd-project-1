@@ -1,0 +1,256 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace assignment_2
+{
+    class candidate
+    {
+        string name;
+        double cnic;
+        string degree;
+        double cgpa;
+        double marks1;
+        double marks2;
+        double marks3;
+        string city;
+
+
+        static void Main(string[] args)
+        {
+            //TASK-1
+
+            List<candidate> names = new List<candidate>();
+            
+
+            candidate C = new candidate();
+             
+
+
+            C.name = "asad";
+            C.cnic = 345026003081;
+            C.degree = "bachelors";
+            C.cgpa = 3.2;
+            C.city = "Rawalpindi";
+            
+            names.Add(C);
+            //Console.WriteLine(C.name+" "+C.cnic" "+C.degree"C.marks1);
+            //Console.WriteLine(C.cnic);
+            //Console.WriteLine(C.degree);
+
+
+            C = new candidate();
+
+            C.name = "arham";
+            C.cnic = 345026003082;
+            C.degree = "bachelors";
+            C.cgpa = 2.9;
+            C.city = "Lahore";
+
+
+            names.Add(C);
+
+
+            C = new candidate();
+
+            C.name = "ammar";
+            C.cnic = 345026003083;
+            C.degree = "bachelors";
+            C.cgpa = 3.5;
+            C.city = "Lahore";
+
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+
+            names.Add(C);
+            Console.WriteLine("total No of Students applied for Bootcamp with their data");
+            for (int i = 0; i < names.Count; i++)
+            {
+
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa);
+            }
+            //Console.WriteLine(C.name);
+            //Console.WriteLine(C.cnic);
+            //Console.WriteLine(C.degree);
+            //Console.ReadLine();
+
+
+                                                                                 //TASK_2
+
+            Console.WriteLine("Students who fulfill the criteria of CGPA>3");
+            for (int i = 0; i < names.Count; i++)
+            {
+                if (names[i].cgpa < 3)
+                {
+                    //names.RemoveAt[i];
+                    names.Remove(names[i]);
+                    //Console.WriteLine(names);
+
+
+                }
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa);
+
+            }
+
+                                                                        //task-3
+
+            Console.WriteLine("Assign random numbers To students for both brojects  ");
+            for (int i = 0; i <names.Count; i++)
+            {
+                 Random rnd = new Random();
+                names[i].marks1 = rnd.Next(1, 100);
+                names[i].marks2 = rnd.Next(1, 100);
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa + " " + names[i].marks1+" " + names[i].marks2);
+
+            }
+
+
+
+            //TASk_4        
+            Console.WriteLine("Students greater than 90% marks ");                                                            
+            for (int i = 0; i < names.Count-1; i++)
+            {
+                names[i].marks3 = (names[i].marks1 + names[i].marks2)/200;
+
+
+                if (names[i].marks3 <0.9)
+                {
+                    names.Remove(names[i]);
+                }
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa+" "+ names[i].marks1 + " " + names[i].marks2);
+
+            }
+
+                                                    //TASK-5
+
+
+
+
+
+            Console.ReadLine();
+
+
+        }
+    }
+}
