@@ -1,0 +1,313 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace assignment_2
+{
+    class candidate
+    {
+        string name;
+        double cnic;
+        string degree;
+        double cgpa;
+        double marks1;
+        double marks2;
+        double marks3;
+        string city;
+
+
+
+
+
+
+        static void Main(string[] args)
+        {
+            //TASK-1
+
+            List<candidate> names = new List<candidate>();
+
+
+            candidate C = new candidate();
+
+             Random rnd = new Random();
+           
+
+            C.name = "asad";
+            C.cnic = 345026003081;
+            C.degree = "bachelors";
+            C.cgpa = 3.2;
+            C.city = "Rawalpindi";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+            //Console.WriteLine(C.name+" "+C.cnic" "+C.degree"C.marks1);
+            //Console.WriteLine(C.cnic);
+            //Console.WriteLine(C.degree);
+
+
+            C = new candidate();
+
+            C.name = "arham";
+            C.cnic = 345026003082;
+            C.degree = "bachelors";
+            C.cgpa = 2.9;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+
+            names.Add(C);
+
+
+            C = new candidate();
+
+            C.name = "ammar";
+            C.cnic = 345026003083;
+            C.degree = "bachelors";
+            C.cgpa = 3.5;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "adil";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "bilal";
+            C.cnic = 345026003094;
+            C.degree = "bachelors";
+            C.cgpa = 2.5;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "ibrahim";
+            C.cnic = 345024003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "musa";
+            C.cnic = 345226003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Rawalpindi";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "hassan";
+            C.cnic = 3450264003084;
+            C.degree = "bachelors";
+            C.cgpa = 2.1;
+            C.city = "Rawalpindi";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "raza";
+            C.cnic = 345226003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.5;
+            C.city = "Rawalpindi";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "mahmood";
+            C.cnic = 342226003084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "ahmad";
+            C.cnic = 345026003084;
+            C.degree = "bachelors";
+            C.cgpa = 2;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "basit";
+            C.cnic = 345026002084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "sheikh";
+            C.cnic = 345026123084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "abdullah";
+            C.cnic = 345026113084;
+            C.degree = "bachelors";
+            C.cgpa = 3.6;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+
+            C = new candidate();
+
+            C.name = "own";
+            C.cnic = 345026003675;
+            C.degree = "bachelors";
+            C.cgpa = 1;
+            C.city = "Lahore";
+            C.marks1 = rnd.Next(1, 100);
+            C.marks2 = rnd.Next(1, 100);
+
+            names.Add(C);
+            Console.WriteLine("          " + "/---------total No of Students applied for Bootcamp with their data----------/");
+            for (int i = 0; i < names.Count; i++)
+            {
+
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa + " " + names[i].city);
+            }
+            //Console.WriteLine(C.name);
+            //Console.WriteLine(C.cnic);
+            //Console.WriteLine(C.degree);
+            //Console.ReadLine();
+
+            Console.WriteLine("          " + "/---------List of Stuedents Fulfill the Criteria of CGPA>3----------/");
+            for (int i = 0; i < 10; i++)
+            {
+                if (names[i].cgpa < 3)
+                {
+                    //names.RemoveAt[i];
+                    names.Remove(names[i]);
+                    //Console.WriteLine(names);
+
+
+                }
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa + " " + names[i].city);
+
+            }
+
+            Console.WriteLine("          " + "/---------Assign random numbers of first two projects to All Remaining Students----------/");
+            
+            for (int i = 0; i < 10; i++)
+            {
+              
+                Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa + " " + names[i].city + " " + names[i].marks1 + " " + names[i].marks2);
+
+            }
+
+            Console.WriteLine("          " + "/---------List of students with greater than 90% marks----------/");
+            for (int i = 0; i < 5; i++)
+            {
+                names[i].marks3 = (names[i].marks1 + names[i].marks2) / 200;
+
+
+                if (names[i].marks3 > 0.5)
+                {
+                    Console.WriteLine(names[i].name + " " + names[i].cnic + " " + names[i].degree + " " + names[i].cgpa + " " + names[i].marks1 + " " + names[i].marks2); 
+                }
+                
+
+            }
+
+
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            
+           
+            
+
+             data.Add("asad", "Rawalpindi");
+             data.Add("arham", "Lahore");
+             data.Add("ammar", "Lahore");
+             data.Add("adil", "Lahore");
+             data.Add("bilal", "Lahore");
+             data.Add("ibrahim", "Rawalpindi");
+             data.Add("musa", "Rawalpindi");
+             data.Add("hassan", "Rawalpindi");
+             data.Add("raza", "Rawalpindi");
+             data.Add("mahmood", "Lahore");
+             data.Add("ahmad", "lahore");
+             data.Add("basit", "Lahore");
+             data.Add("sheikh", "lahore");
+             data.Add("abdullah", "lahore");
+             data.Add("own", "lahore");
+
+             Console.WriteLine("          " + "/---------List of students From rawalpindi----------/");
+             foreach (KeyValuePair<string, string> kv in data)
+             {
+                 if (kv.Value == "Rawalpindi")
+                 {
+                     Console.WriteLine(kv.Key);
+                 }
+             }
+
+             Console.WriteLine("          " + "/---------sorting list----------/");
+
+
+          
+         Console.ReadLine();
+
+            }
+        
+             
+            
+        }
+}
