@@ -1,7 +1,101 @@
-Test Scenario ID	Test Scenario Description
-TS_WA_01	Verify the login Functionality by Entering valid and Invalid details
-TS_WA_02	Verify the Functionality of Annual Leaves by entering valid and invalid details
-TS_WA_03	Verify the Profile Functionality By updating Personal info with valid and invalid credentials
-	Verify the Functionality of changing password by entering valid and invalid passwords
-	Verify the Logout functionality 
-	Verify the Functionality of apply Leave by entering valid and invalid data  
+package ASDFG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class ASDFGHJK {
+
+	
+@Test
+public void Login() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\4391\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://github.com/login");
+	driver.findElement(By.id("login_field")).sendKeys("helo1234567");
+	
+	driver.findElement(By.id("password")).sendKeys("Asad777&");
+	driver.findElement(By.name("commit")).click();
+	
+	String actualTitle=driver.getTitle();																	//get tiltle of the page		
+    if(actualTitle.startsWith("GitHub")) {													//compare with expected title
+    	System.out.println("Test Passed");
+    	}
+    else {
+    	System.out.println("Test Failed");
+    }
+
+}
+@Test
+public void Loginwrong() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\4391\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://github.com/login");
+	driver.findElement(By.id("login_field")).sendKeys("helo1234");
+	
+	driver.findElement(By.id("password")).sendKeys("Asad777&");
+	driver.findElement(By.name("commit")).click();
+	
+	String actualTitle=driver.getTitle();																	//get tiltle of the page		
+    if(actualTitle.startsWith("GitHub")) {													//compare with expected title
+    	System.out.println("Test Passed");
+    	}
+    else {
+    	System.out.println("Test Failed");
+    }
+
+}
+@Test
+public void Loginwithempty() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\4391\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://github.com/login");
+	driver.findElement(By.id("login_field")).sendKeys("");
+	
+	driver.findElement(By.id("password")).sendKeys("");
+	driver.findElement(By.name("commit")).click();
+	
+	String actualTitle=driver.getTitle();																	//get tiltle of the page		
+    if(actualTitle.startsWith("GitHub")) {													//compare with expected title
+    	System.out.println("Test Passed");
+    	}
+    else {
+    	System.out.println("Test Failed");
+    }
+    
+    
+
+}
+@Test 
+public void specialcharacters() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\4391\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://github.com/login");
+	driver.findElement(By.id("login_field")).sendKeys("@##$@@!$");
+	
+	driver.findElement(By.id("password")).sendKeys("!@#$%$#@#@");
+	driver.findElement(By.name("commit")).click();
+	
+	String actualTitle=driver.getTitle();																	//get tiltle of the page		
+    if(actualTitle.startsWith("GitHub")) {													//compare with expected title
+    	System.out.println("Test Passed");
+    	}
+    else {
+    	System.out.println("Test Failed");
+    }
+}
+@Test
+public void search() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\4391\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://github.com/login");
+	driver.findElement(By.id("login_field")).sendKeys("helo1234567");
+	driver.findElement(By.id("password")).sendKeys("Asad777&");
+	driver.findElement(By.name("commit")).click();
+	driver.findElement(By.xpath("/html/body/div[1]/header/div[3]/div/div/form/label/input[1]")).sendKeys("Testerw"+Keys.ENTER);
+}
+
+	
+}
