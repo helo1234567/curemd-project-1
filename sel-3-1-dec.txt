@@ -1,0 +1,386 @@
+package GitHublogin;
+
+import static org.testng.Assert.assertEquals;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import graphql.Assert;
+
+public class Final_Lab_3 {
+	
+WebDriver driver;
+	
+	//Initialize Driver and get Website before every method
+	@BeforeMethod
+	public void openwebsite() throws InterruptedException {
+			
+    		driver=new ChromeDriver();
+    		driver.manage().window().maximize();
+    		driver.get("https://omayo.blogspot.in/");
+    		
+    	
+    		}
+	//close window after every method
+    @AfterMethod
+	public void closetab() throws InterruptedException {
+		driver.close();
+		
+	}
+    
+    @Test(description="Enter name in first text box")
+	public void Task1() throws InterruptedException {
+		//initialize object of wait
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebElement entername=driver.findElement(By.xpath("//textarea[@id='ta1']"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[@id='ta1']")));
+		//send name inside box
+		entername.sendKeys("Asad Raza Mahmood");
+		Thread.sleep(3000);
+		Assert.assertNotNull(entername);
+    }
+    @Test(description="Enter description in second text box")
+    public void Task1_2() throws InterruptedException {
+    	
+    	String gettext=driver.findElement(By.xpath("//textarea[@rows=10 and @cols=30]")).getText();
+		WebElement description =driver.findElement(By.xpath("//textarea[@rows=10 and @cols=30]"));
+		//clear text inside the box
+		description.clear();
+		//send keys inside the box
+		description.sendKeys("helo asad");
+		Thread.sleep(3000);
+		System.out.println(gettext);
+		Assert.assertNotNull(description);
+		
+    	
+    }
+    
+    @Test(description="Print table ")
+	public void Task2() {
+		//find table 
+		WebElement printtable=driver.findElement(By.xpath("//*[@id='table1']"));
+		//stored rows values in list
+		List<WebElement> rows=printtable.findElements(By.tagName("tr"));
+		List<WebElement> headings=printtable.findElements(By.tagName("th"));
+		for(int i=0;i<headings.size();i++) {
+			System.out.print(headings.get(i).getText()+"  ");
+			
+		}
+		for(int i=0;i<rows.size();i++) {
+			List<WebElement>  coloms= rows.get(i).findElements(By.tagName("td"));
+			
+			for(int j=0;j<coloms.size();j++) {
+				System.out.print(coloms.get(j).getText()+"  ");
+			}
+			System.out.println("  ");
+		}
+			
+	}
+    
+    @Test(description="Enter login details")
+	public void Task2_login() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//form[contains(text(),'Username:']//input[@type='text']")).sendKeys("asad");
+		driver.findElement(By.xpath("//form[contains(text(),'Username:']//input[@type='password']")).sendKeys("1234566");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@type='button' and @value='LogIn']")).click();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+		}
+    
+    @Test(description="Switch frames ")
+	public void Task3() throws InterruptedException {
+		//Initialize parent window handle 
+		String newwindow=driver.getWindowHandle();
+		//find first frame
+		WebElement frame1=driver.findElement(By.xpath("//iframe[@id='iframe1']"));
+		//switch to frame
+		driver.switchTo().frame(frame1);
+		//switch to window again
+		driver.switchTo().window(newwindow);
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		WebElement frame2=driver.findElement(By.xpath("//iframe[@id='iframe2']"));
+		driver.switchTo().frame(frame2);
+		driver.switchTo().window(newwindow);
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+		
+	
+}
+	@Test(description="Enter login details and handle alert")
+	public void Task3_login() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@type='text' and @name='userid' ]")).sendKeys("asad");
+		driver.findElement(By.xpath("//input[@type='password' and @name='pswrd' ]")).sendKeys("helo");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@type='button' and @value='Login' ]")).click();
+		Thread.sleep(3000);
+		//handle popup
+		Alert alert=driver.switchTo().alert();
+		alert.accept();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+		}
+	
+	@Test(description="Click on Hyundaix")
+	public void Task4() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//option[@value='Hyundaix']")).click();
+		Thread.sleep(3000);
+		String text=driver.findElement(By.xpath("//option[@value='Hyundaix']")).getText();
+		assertEquals("Hyundai", text);
+	}
+	@Test(description="select from Dropdown")
+	public void Task4_() throws InterruptedException {
+		WebElement dropdown=driver.findElement(By.xpath("//select[@id='drop1']"));
+		Select select= new Select(dropdown);
+		Thread.sleep(3000);
+		select.selectByVisibleText("doc 3");
+		Thread.sleep(3000);
+		String option = select.getFirstSelectedOption().getText();
+		assertEquals("doc 3", option);
+	}
+	@Test(description="Clear box and enter test")
+	public void Task4_1() throws InterruptedException {
+		WebElement unm5=driver.findElement(By.xpath("//input[@name='fname']"));
+		unm5.clear();
+		Thread.sleep(3000);
+		unm5.sendKeys("Hello World");
+		Thread.sleep(3000);
+		Assert.assertNotNull(unm5);
+		
+	}
+	
+	@Test(description="Click on enabled button")
+	public void Task4_2() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@id='but2']")).click();
+		Thread.sleep(3000);
+		String text=driver.findElement(By.xpath("//button[@id='but2']")).getText();
+		assertEquals("Button2", text);
+	
+		
+		
+	}
+	
+	@Test(description="Click on submit button")
+	public void Task4_3() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//button[text()='Submit']")).click();
+		Thread.sleep(3000);
+		String text=driver.findElement(By.xpath("//button[text()='Submit']")).getText();
+		assertEquals("Submit", text);
+	}
+	@Test(description="Click on Login button")
+	public void Task4_4() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		Thread.sleep(3000);
+		String text=driver.findElement(By.xpath("//button[text()='Login']")).getText();
+		assertEquals("Login", text);
+	}
+	
+	@Test(description="Click on Register button")
+	public void Task4_5() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//button[text()='Register']")).click();
+		Thread.sleep(3000);
+		String text=driver.findElement(By.xpath("//button[text()='Register']")).getText();
+		assertEquals("Register", text);
+	}
+	
+	@Test(description="click on (click after text disappears) button & handle alert")
+	public void Task4_6() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='alert2']")).click();
+		Thread.sleep(3000);
+		Alert alert1=driver.switchTo().alert();
+		alert1.accept();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+	}
+
+	@Test(description="click on popup button")
+	public void Task4_7() throws InterruptedException {
+		String newwindow=driver.getWindowHandle();
+		driver.findElement(By.xpath("//a[text()='Open a popup window']")).click();
+		//switch to windows and get text of child window
+		java.util.Set<String> handles=driver.getWindowHandles();
+		
+		for(String handle:handles) {
+			if(!handle.equals(newwindow)) {
+				driver.switchTo().window(handle);
+				String text=driver.findElement(By.xpath("//body")).getText();
+				
+				System.out.println(text);
+				assertEquals(driver.getTitle(), "Basic Web Page Title");
+				driver.close();
+			}
+			
+			
+		}
+		driver.switchTo().window(newwindow);
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+	}
+	
+	@Test(description="click on try button")
+	public void Task4_8() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//button[text()='Try it']")).click();
+		Thread.sleep(5000);
+		
+		Assert.assertFalse(driver.findElement(By.xpath("//button[text()='My Button']")).isEnabled());
+	}
+	
+	@Test(description="click on double click here button")
+	public void Task4_9() throws InterruptedException {
+		Actions act = new Actions(driver);
+		WebElement ele = driver.findElement(By.xpath("//button[text()=' Double click Here   ']")); 
+		Thread.sleep(3000);
+		act.doubleClick(ele).perform();
+		Thread.sleep(3000);
+		Alert alert2=driver.switchTo().alert();
+		alert2.accept();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+	}
+	
+	@Test(description="click on checkthis button")
+	public void Task4_10() throws InterruptedException {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		driver.findElement(By.xpath("//button[text()='Check this']")).click();
+		//wait until the checkbox is enabled
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='dte']"))).isEnabled();
+		driver.findElement(By.xpath("//input[@id='dte']")).click();
+		Thread.sleep(12000);
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='dte']")).isEnabled());
+	}
+	
+	//TASK----5
+	
+	@Test(description="click on Radio button")
+	public void Task5_1() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='radio1']")).click();
+		Thread.sleep(3000);
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='radio1']")).isEnabled());
+	}
+	
+	@Test(description="click on (click to get alert) and handle elert")
+	public void Task5_2() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='alert1']")).click();
+		Thread.sleep(3000);
+		Alert alert2=driver.switchTo().alert();
+		alert2.accept();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+	}
+	@Test(description="select blue color and deselect orange")
+	public void Task5_3() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='checkbox2']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='checkbox1']")).click();
+		Thread.sleep(3000);
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='checkbox2']")).isEnabled());
+	}
+	
+	@Test(description="read text of box and print")
+	public void Task5_4() throws InterruptedException {
+		
+		WebElement innertext=driver.findElement(By.xpath("//input[@id='rotb']"));
+		innertext.isDisplayed();
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='rotb']")).isDisplayed());
+	}
+	
+	@Test(description="click on getprompt and handle alert")
+	public void Task5_5() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='prompt']")).click();
+		Thread.sleep(2000);
+		 
+		driver.switchTo().alert().sendKeys("asad");
+		Thread.sleep(3000);
+		driver.switchTo().alert().accept();
+		
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+	}
+	
+	@Test(description="click on getconfirmation and handlealert ")
+	public void Task5_6() throws InterruptedException {
+		driver.findElement(By.xpath("//input[@id='confirm']")).click();
+		Thread.sleep(3000);
+		driver.switchTo().alert().dismiss();
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+	}
+	
+	@Test(description="send keys to first box")
+	public void Task5_7() throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='HTML24']/child::div/input[@class='classone']")).sendKeys("kuch bhi");
+		Thread.sleep(3000);
+		WebElement senddata=driver.findElement(By.xpath("//div[@id='HTML24']/child::div/input[@class='classone']"));
+		Assert.assertNotNull(senddata);
+	}
+	
+	@Test(description="send keys to second box")
+	public void Task5_8() throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='HTML28']/child::div/input[@class='classone']")).sendKeys("waoooo");
+		Thread.sleep(3000);
+		WebElement senddata=driver.findElement(By.xpath("//div[@id='HTML28']/child::div/input[@class='classone']"));
+		Assert.assertNotNull(senddata);
+		
+	}
+	
+	@Test(description="Click on car")
+	public void Task5_9() throws InterruptedException {
+		driver.findElement(By.xpath("//input[@value='Car']")).click();
+		Thread.sleep(3000);
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@value='Car']")).isEnabled());
+	}
+	
+	@Test(description="Click on book and deselect")
+	public void Task5_10() throws InterruptedException {
+		
+		Actions act = new Actions(driver);
+
+		//Double click on book
+		WebElement ele1 = driver.findElement(By.xpath("//input[@value='Book']")); 
+		act.doubleClick(ele1).perform();
+		Thread.sleep(3000);
+		//click on bag
+		driver.findElement(By.xpath("//input[@value='Bag']")).click();
+		Thread.sleep(3000);
+		//click on book
+		driver.findElement(By.xpath("//input[@value='Book']")).click();
+		Thread.sleep(3000);
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@value='Book']")).isEnabled());
+		
+	}
+	
+	@Test(description="Click on book and deselect")
+	public void Task5_11() throws InterruptedException {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebElement ele3 = driver.findElement(By.xpath("//button[@class='dropbtn']")); 
+		ele3.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Facebook']"))).isDisplayed();
+		WebElement unm=driver.findElement(By.xpath("//a[text()='Facebook']"));
+		Thread.sleep(1000);
+		unm.click();
+		
+		assertEquals(driver.getTitle(), "Facebook – log in or sign up");
+		
+	}
+	
+}
