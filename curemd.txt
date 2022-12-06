@@ -1,0 +1,27 @@
+List<WebElement> dropdownlist =select.getOptions();
+		ArrayList<String> actual=new ArrayList<String>(); 
+		
+		
+		
+		for(WebElement ele:dropdownlist) {
+			String options=ele.getText();
+			actual.add(options);
+		}
+		
+		
+		ArrayList<String> dp=new ArrayList<String>();  
+		dp.add("Older Newsletters");
+		dp.add("doc 1");
+		dp.add("doc 2");
+		dp.add("doc 3");
+		dp.add("doc 4");
+		
+		for(int i=0;i<dropdownlist.size();i++) {
+			
+			String a=dropdownlist.get(i).getText();
+			
+			System.out.println(a);
+		}
+		
+		boolean asad1=dp.equals(actual);
+		System.out.println(asad1);
