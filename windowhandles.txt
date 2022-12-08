@@ -1,0 +1,43 @@
+package practice;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+public class windowhandle {
+	@Test
+	public void asad() throws InterruptedException {
+		
+	WebDriver driver=new ChromeDriver();
+	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+	driver.get("https://www.way2automation.com/way2auto_jquery/frames-and-windows.php");
+	driver.findElement(By.xpath("//a[text()='Open Multiple Windows']")).click();
+	driver.switchTo().frame(3);
+	driver.findElement(By.xpath("//a[text()='Open multiple pages']")).click();
+	Thread.sleep(7000);
+	//WebElement text=driver.findElement(By.xpath("/html/body/div/p/a"));
+	//WebElement text1=driver.findElement(By.xpath("//div[@class='farme_window']"));
+	//WebElement text2=driver.findElement(By.xpath("//div[@class='farme_window']"));
+	//wait.until(ExpectedConditions.visibilityOfAllElements(text));
+	Set<String> windowhandles=driver.getWindowHandles();
+	Iterator<String> iterator=windowhandles.iterator();
+	String parentwindow=iterator.next();
+	String child1=iterator.next();
+	String child2=iterator.next();
+	String child3=iterator.next();
+	Thread.sleep(2000);
+	driver.switchTo().window(child3);
+	driver.close();
+//	String asad=text.getText();
+//	System.out.println(asad);
+	
+	}
+}
